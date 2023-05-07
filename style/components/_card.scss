@@ -1,0 +1,11 @@
+.card-imgContainer {
+  border-top-left-radius: calc(1rem - 1px);
+  border-top-right-radius: calc(1rem - 1px);
+  overflow: hidden;
+  img {
+    transition: transform .35s ease;
+  }
+  &:hover img {
+    transform: scale(1.05);
+  }
+}

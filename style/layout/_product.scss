@@ -1,0 +1,11 @@
+.product .card-description {
+  @include media-breakpoint-up(md) {
+    min-height: 132px;
+  }
+  @include media-breakpoint-up(lg) {
+    min-height: 155px;
+  }
+  @include media-breakpoint-up(xl) {
+    min-height: 132px;
+  }
+}
