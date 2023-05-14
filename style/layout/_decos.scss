@@ -1,0 +1,6 @@
+.decos {
+  height: 117px;
+  @include media-breakpoint-up(lg) {
+    height: 180px;
+  }
+}

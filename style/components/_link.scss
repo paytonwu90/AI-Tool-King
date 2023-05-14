@@ -1,0 +1,6 @@
+.link-black {
+  color: $black;
+  &:hover, &:focus {
+    color: $gray-800;
+  }
+}

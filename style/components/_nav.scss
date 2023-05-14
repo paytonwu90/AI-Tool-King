@@ -1,0 +1,16 @@
+.nav-tabs-white {
+  flex-wrap: nowrap;
+  .nav-link {
+    color: $gray-600;
+    border-radius: 1rem;
+    white-space: nowrap;
+    &:hover {
+      color: $dark;
+    }
+    &.active {
+      font-weight: 700;
+      color: $black;
+      background-color: $gray-200;
+    }
+  }
+}

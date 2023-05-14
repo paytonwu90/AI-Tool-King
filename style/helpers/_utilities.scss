@@ -1,3 +1,62 @@
 .fw-black {
   font-weight: 900 !important;
 }
+
+.h-0 {
+  height: 0 !important;
+}
+.h-40px {
+  height: 40px;
+}
+.w-0 {
+  width: 0 !important;
+}
+
+.fs-lg-1 {
+  @include media-breakpoint-up(lg) {
+    font-size: $h1-font-size !important;
+  }
+}
+.fs-lg-3 {
+  @include media-breakpoint-up(lg) {
+    font-size: $h3-font-size !important;
+  }
+}
+.display-lg-2 {
+  @include media-breakpoint-up(lg) {
+    font-size: 7.5rem !important; //120px
+  }
+}
+.display-lg-3 {
+  @include media-breakpoint-up(lg) {
+    font-size: 5rem !important;
+  }
+}
+
+.position-md-absolute {
+  @include media-breakpoint-up(md) {
+    position: absolute !important;
+  }
+}
+.position-lg-absolute {
+  @include media-breakpoint-up(lg) {
+    position: absolute !important;
+  }
+}
+
+.translate-md-middle-y {
+  @include media-breakpoint-up(md) {
+    transform: translateY(-50%) !important;
+  }
+}
+.translate-lg-middle {
+  @include media-breakpoint-up(lg) {
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+.rounded-lg-3 {
+  @include media-breakpoint-up(lg) {
+    border-radius: $border-radius-lg !important;
+  }
+}
