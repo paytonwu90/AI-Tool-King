@@ -14512,15 +14512,10 @@ sub {
   }
 }
 
-.card-imgContainer {
-  border-top-left-radius: calc(1rem - 1px);
-  border-top-right-radius: calc(1rem - 1px);
-  overflow: hidden;
-}
-.card-imgContainer img {
+.card-hoverEffect img {
   transition: transform 0.35s ease;
 }
-.card-imgContainer:hover img {
+.card-hoverEffect:hover img {
   transform: scale(1.1);
 }
 
