@@ -1,0 +1,22 @@
+.hover-zoomImage {
+  img {
+    transition: transform .35s ease;
+  }
+  &:hover img {
+    transform: scale(1.1);
+  }
+}
+
+.hover-shadow {
+  transition: box-shadow .35s ease;
+  &:hover {
+    box-shadow: 0 0 3px 1px #fff;
+  }
+}
+
+.hover-border-white {
+  transition: border .35s ease;
+  &:hover {
+    border: 1px solid #fff !important;
+  }
+}

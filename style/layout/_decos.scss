@@ -21,7 +21,8 @@
 
 @keyframes grow1 {
   0%, 20% {
-    transform: translateY(100%);
+    //畫面在拉小的時候 translateY(100%) 還是會露出一點點，在 img 上設 d-block 也沒用
+    transform: translateY(101%);
   }
   70%, 85% {
     transform: translateY(0);
@@ -33,7 +34,7 @@
 
 @keyframes grow2 {
   0%, 25% {
-    transform: translateY(100%);
+    transform: translateY(101%);
   }
   75%, 90% {
     transform: translateY(0);
@@ -45,7 +46,7 @@
 
 @keyframes grow3 {
   0%, 30% {
-    transform: translateY(100%);
+    transform: translateY(101%);
   }
   80%, 95% {
     transform: translateY(0);

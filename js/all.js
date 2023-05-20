@@ -2,6 +2,19 @@ window.addEventListener('DOMContentLoaded', addListeners);
 
 function addListeners() {
   $('.goTop').click(goTop);
+
+  $('.accordion').click(function (e) {
+    if (!e.target.classList.contains('accordion-button')) return;
+    
+    $('.accordion-button').get().forEach(function(btn) {
+      if (btn.classList.contains('collapsed')) {
+        btn.closest('.accordion-item').classList.remove('border-white');
+      }
+      else {
+        btn.closest('.accordion-item').classList.add('border-white');
+      }
+    });
+  });
 }
 
 function goTop() {

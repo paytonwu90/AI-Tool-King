@@ -1,8 +1,0 @@
-.card-hoverEffect {
-  img {
-    transition: transform .35s ease;
-  }
-  &:hover img {
-    transform: scale(1.1);
-  }
-}
