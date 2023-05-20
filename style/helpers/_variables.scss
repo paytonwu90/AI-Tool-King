@@ -387,11 +387,12 @@ $spacers: (
   10: $spacer * 2.5, //new                  40px
   11: $spacer * 2.75, //new                 44px
   12: $spacer * 3, //new                    48px
-  13: $spacer * 5, //new                    80px
-  14: $spacer * 6.25, //new                 100px
-  15: $spacer * 7.5, //new                  120px
-  16: $spacer * 10, //new                   160px
-  17: $spacer * 11.25, //new                180px
+  13: $spacer * 4, //new                    64px
+  14: $spacer * 5, //new                    80px
+  15: $spacer * 6.25, //new                 100px
+  16: $spacer * 7.5, //new                  120px
+  17: $spacer * 10, //new                   160px
+  18: $spacer * 11.25, //new                180px
 ) !default;
 
 $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;

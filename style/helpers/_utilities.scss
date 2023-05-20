@@ -12,6 +12,10 @@
   width: 0 !important;
 }
 
+.left-40px {
+  left: 40px !important;
+}
+
 .fs-lg-1 {
   @include media-breakpoint-up(lg) {
     font-size: $h1-font-size !important;

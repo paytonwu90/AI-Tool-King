@@ -3,4 +3,54 @@
   @include media-breakpoint-up(lg) {
     height: 180px;
   }
+  img {
+    transform: translateY(100%);
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    &:nth-child(3) {
+      animation-name: grow1;
+    }
+    &:nth-child(2) {
+      animation-name: grow2;
+    }
+    &:nth-child(1) {
+      animation-name: grow3;
+    }
+  }
+}
+
+@keyframes grow1 {
+  0%, 20% {
+    transform: translateY(100%);
+  }
+  70%, 85% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes grow2 {
+  0%, 25% {
+    transform: translateY(100%);
+  }
+  75%, 90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes grow3 {
+  0%, 30% {
+    transform: translateY(100%);
+  }
+  80%, 95% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
