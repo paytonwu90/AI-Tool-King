@@ -14890,7 +14890,7 @@ sub {
   box-shadow: none;
 }
 .accordion-button:not(.collapsed)::before {
-  background-image: url("../../image/icons/remove.png");
+  background-image: url("./../image/icons/remove.png");
   transform: rotate(-180deg);
 }
 .accordion-button::before {
@@ -14899,7 +14899,7 @@ sub {
   height: 1.25rem;
   margin-right: 20px;
   content: "";
-  background-image: url("../../image/icons/add.png");
+  background-image: url("./../image/icons/add.png");
   background-repeat: no-repeat;
   background-size: 1.25rem;
   transition: transform 0.2s ease-in-out;

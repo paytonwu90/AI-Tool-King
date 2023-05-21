@@ -10,7 +10,7 @@
     box-shadow: none;
 
     &::before {
-      background-image: url('../../image/icons/remove.png');
+      background-image: url('./../image/icons/remove.png');
       transform: $accordion-icon-transform;
     }
   }
@@ -22,7 +22,7 @@
     height: $accordion-icon-width;
     margin-right: 20px;
     content: "";
-    background-image: url('../../image/icons/add.png');
+    background-image: url('./../image/icons/add.png');
     background-repeat: no-repeat;
     background-size: $accordion-icon-width;
     @include transition($accordion-icon-transition);
