@@ -1,9 +1,9 @@
-.decos {
+.grassWrapper {
   height: 117px;
   @include media-breakpoint-up(lg) {
     height: 180px;
   }
-  img {
+  img, .grass {
     transform: translateY(100%);
     animation-duration: 6s;
     animation-iteration-count: infinite;
@@ -53,5 +53,53 @@
   }
   100% {
     transform: translateY(-100%);
+  }
+}
+
+.grass {
+  position: relative;
+  width: 117px;
+  height: 117px;
+  flex-shrink: 0;
+  overflow: hidden;
+  @include media-breakpoint-up(lg) {
+    width: 180px;
+    height: 180px;
+  }
+}
+.rectangle {
+  position: absolute;
+  height: 100%;
+  width: 11.1111%; //20px
+  background-color: #fff;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+.circle {
+  position: absolute;
+  width: 111.1111%; //200px/180px
+  height: 111.1111%;
+  background-color: #fff;
+  top: 50%;
+  border-radius: 50%;
+  &-1 {
+    left: 0%;
+    transform: translate(-50%, 0);
+  }
+  &-2 {
+    left: 100%;
+    transform: translate(-50%, 0);
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    width: 80%; //160px/200px
+    height: 80%;
+    background-color: #000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
   }
 }
