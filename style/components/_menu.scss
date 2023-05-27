@@ -1,0 +1,58 @@
+.menu {
+  display: none;
+  position: absolute;
+  color: $black;
+  background-color: #fff;
+  padding: 0;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.15);
+  overflow: auto;
+  z-index: 2;
+  white-space: nowrap;
+  * {
+    list-style: none;
+  }
+  &-content {
+    position: relative;
+    padding: 20px 0;
+    margin: 0;
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: calc(100% - 80px);
+      height: 1px;
+      background-color: $light;
+      transform: translateX(-50%);
+    }
+  }
+  &-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: $gray-600;
+    padding: 0 40px;
+    margin-bottom: 8px;
+  }
+  &-item {
+    padding: 4px 40px;
+    transition: background-color .2s ease;
+    cursor: pointer;
+    &:hover {
+      background-color: $light;
+    }
+  }
+}
+
+.filterMenu {
+  width: calc(100% - 1.5rem); //減掉 gutter
+  @include media-breakpoint-up(sm) {
+    width: 240px;
+  }
+  .menu-item .material-icons {
+    display: none;
+  }
+  .menu-item.active .material-icons {
+    display: inline;
+  }
+}

@@ -1,0 +1,58 @@
+.filterBtn, .sortBtn {
+  &:hover {
+    border: 1px solid $black !important;
+  }
+  &:active,
+  &.active {
+    border: 1px solid $black !important;
+    box-shadow: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.filterBtn {
+  &.selected {
+    .filterBtn-icon {
+      display: none;
+      @include media-breakpoint-up (xl) {
+        display: block;
+        color: #fff;
+        background-color: $black;
+      }
+    }
+    .filterBtn-count {
+      display: flex;
+      @include media-breakpoint-up (xl) {
+        display: none;
+      }
+    }
+  }
+  &-icon {
+    padding: 2px;
+    border-radius: 2px;
+  }
+  &-count {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    color: #fff;
+    background-color: $black;
+    border-radius: 4px;
+  }
+}
+
+.sortBtn {
+  &.active .material-icons {
+    transform: rotate(180deg);
+  }
+  .material-icons {
+    transition: transform .2s ease;
+  }
+}

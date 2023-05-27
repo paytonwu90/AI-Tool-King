@@ -159,6 +159,34 @@
     </div>
   </div>
 
+  <!-- 選單 -->
+  <div id="filterMenu" class="filterMenu menu">
+    <ul class="menu-content" data-filter="modal">
+      <li class="menu-title">AI 模型</li>
+      <li class="menu-item d-flex justify-content-between" data-filter-modal="所有模型">所有模型<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-modal="卡卡">卡卡<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-modal="杰杰">杰杰<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-modal="琪琪">琪琪<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-modal="昊昊">昊昊<span class="material-icons">check</span></li>
+    </ul>
+    <ul class="menu-content" data-filter="type">
+      <li class="menu-title">類型</li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="所有模型">所有模型<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 1">篩選項目 1<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 2">篩選項目 2<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 3">篩選項目 3<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 4">篩選項目 4<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 5">篩選項目 5<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 6">篩選項目 6<span class="material-icons">check</span></li>
+    </ul>
+  </div>
+  <div id="sortMenu" class="sortMenu menu">
+    <ul class="menu-content">
+      <li class="menu-item" data-sort="由新到舊">由新到舊</li>
+      <li class="menu-item" data-sort="由舊到新">由舊到新</li>
+    </ul>
+  </div>
+
   <!-- 這些超酷的應用，都來自 AI工具王 -->
   <div class="bg-white text-black rounded-2 rounded-lg-3">
     <div class="product container py-14 py-lg-17">
@@ -168,13 +196,15 @@
         <span class="material-icons position-absolute top-50 left-40px translate-middle-y text-secondary">search</span>
       </div>
       <div class="position-relative mb-11 mb-lg-10">
-        <div class="d-flex justify-content-between mb-6">
-          <button class="btn btn-primary d-inline-flex align-items-center border border-light">
-            <span class="me-4">篩選</span><span class="material-icons fs-7">filter_alt</span>
+        <div class="d-flex justify-content-between mb-4">
+          <button class="filterBtn btn btn-primary d-inline-flex align-items-center border border-light" id="filterBtn" data-menu="filterMenu">
+            <span id="filterBtn-txt" class="me-4">篩選</span>
+            <span class="filterBtn-icon material-icons fs-7">filter_alt</span>
+            <span id="filterBtn-count" class="filterBtn-count fs-9">2</span>
           </button>
-          <select name="" id="" class="form-select d-inline-block w-auto border-light">
-            <option value="由新到舊">由新到舊</option>
-          </select>
+          <button class="sortBtn btn btn-primary border border-light" id="sortBtn" data-menu="sortMenu">
+            <span id="sortBtn-text" class="me-4">由新到舊</span><span class="material-icons fs-7">keyboard_arrow_down</span>
+          </button>
         </div>
         <!-- set `padding-bottom` on `nav` to make extra space for the x-axis scroll bar -->
         <ul class="nav nav-tabs-white position-lg-absolute top-50 start-50 translate-lg-middle overflow-auto pb-1 pb-lg-0">
@@ -458,6 +488,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   <script src="js/jquery-3.6.0.js"></script>
   <script src="js/all.js"></script>
 </body>
