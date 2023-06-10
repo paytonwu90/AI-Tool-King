@@ -175,29 +175,29 @@
 
   <!-- 選單 -->
   <div id="filterMenu" class="filterMenu menu">
-    <ul class="menu-content" data-filter="modal">
+    <!-- <ul id="filterMenu-model" class="menu-content">
       <li class="menu-title">AI 模型</li>
-      <li class="menu-item d-flex justify-content-between" data-filter-modal="所有模型">所有模型<span class="material-icons">check</span></li>
-      <li class="menu-item d-flex justify-content-between" data-filter-modal="卡卡">卡卡<span class="material-icons">check</span></li>
-      <li class="menu-item d-flex justify-content-between" data-filter-modal="杰杰">杰杰<span class="material-icons">check</span></li>
-      <li class="menu-item d-flex justify-content-between" data-filter-modal="琪琪">琪琪<span class="material-icons">check</span></li>
-      <li class="menu-item d-flex justify-content-between" data-filter-modal="昊昊">昊昊<span class="material-icons">check</span></li>
-    </ul>
-    <ul class="menu-content" data-filter="type">
+      <li class="menu-item d-flex justify-content-between" data-filter-model="所有模型">所有模型<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-model="卡卡">卡卡<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-model="杰杰">杰杰<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-model="琪琪">琪琪<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-model="昊昊">昊昊<span class="material-icons">check</span></li>
+    </ul> -->
+    <ul id="filterMenu-type" class="menu-content" data-filter="type">
       <li class="menu-title">類型</li>
-      <li class="menu-item d-flex justify-content-between" data-filter-type="所有模型">所有模型<span class="material-icons">check</span></li>
-      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 1">篩選項目 1<span class="material-icons">check</span></li>
-      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 2">篩選項目 2<span class="material-icons">check</span></li>
-      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 3">篩選項目 3<span class="material-icons">check</span></li>
-      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 4">篩選項目 4<span class="material-icons">check</span></li>
-      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 5">篩選項目 5<span class="material-icons">check</span></li>
-      <li class="menu-item d-flex justify-content-between" data-filter-type="篩選項目 6">篩選項目 6<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="">所有類型<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="問答服務">問答服務<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="虛擬客服">虛擬客服<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="生活應用">生活應用<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="程式知識">程式知識<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="翻譯助手">翻譯助手<span class="material-icons">check</span></li>
+      <li class="menu-item d-flex justify-content-between" data-filter-type="行銷文案">行銷文案<span class="material-icons">check</span></li>
     </ul>
   </div>
   <div id="sortMenu" class="sortMenu menu">
     <ul class="menu-content">
-      <li class="menu-item" data-sort="由新到舊">由新到舊</li>
-      <li class="menu-item" data-sort="由舊到新">由舊到新</li>
+      <li class="menu-item" data-sort="0">由新到舊</li>
+      <li class="menu-item" data-sort="1">由舊到新</li>
     </ul>
   </div>
 
@@ -214,40 +214,40 @@
           <button class="filterBtn btn btn-primary d-inline-flex align-items-center border border-light" id="filterBtn" data-menu="filterMenu">
             <span id="filterBtn-txt" class="me-4">篩選</span>
             <span class="filterBtn-icon material-icons fs-7">filter_alt</span>
-            <span id="filterBtn-count" class="filterBtn-count fs-9">2</span>
+            <span id="filterBtn-count" class="filterBtn-count fs-9"></span>
           </button>
           <button class="sortBtn btn btn-primary border border-light" id="sortBtn" data-menu="sortMenu">
             <span id="sortBtn-text" class="me-4">由新到舊</span><span class="material-icons fs-7">keyboard_arrow_down</span>
           </button>
         </div>
         <!-- set `padding-bottom` on `nav` to make extra space for the x-axis scroll bar -->
-        <ul class="nav nav-tabs-white position-lg-absolute top-50 start-50 translate-lg-middle overflow-auto pb-1 pb-lg-0">
+        <ul id="typeNav" class="nav nav-tabs-white position-lg-absolute top-50 start-50 translate-lg-middle overflow-auto pb-1 pb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active " aria-current="" href="#">全部</a>
+            <a class="nav-link active" aria-current="" href="javascript:;" data-filter-type="">全部</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">聊天</a>
+            <a class="nav-link" href="javascript:;" data-filter-type="問答服務">問答服務</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">影像辨識</a>
+            <a class="nav-link" href="javascript:;" data-filter-type="虛擬客服">虛擬客服</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">翻譯</a>
+            <a class="nav-link" href="javascript:;" data-filter-type="生活應用">生活應用</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">行銷</a>
+            <a class="nav-link" href="javascript:;" data-filter-type="程式知識">程式知識</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">客服</a>
+            <a class="nav-link" href="javascript:;" data-filter-type="翻譯助手">翻譯助手</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">生產力</a>
+            <a class="nav-link" href="javascript:;" data-filter-type="行銷文案">行銷文案</a>
           </li>
         </ul>
       </div>
 
-      <div class="row mb-8 mb-lg-10">
-        <div class="col-md-6 col-lg-4 mb-3 mb-md-6">
+      <div id="work" class="row pb-5 pb-md-4">
+        <!-- <div class="col-md-6 col-lg-4 mb-3 mb-md-6">
           <div class="card hover-zoomImage h-100 overflow-hidden">
             <div class="overflow-hidden">
               <img src="image/tool1.png" alt="Chatbot Builder" class="card-img-top">
@@ -316,7 +316,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-3 mb-md-6 mb-lg-0">
+        <div class="col-md-6 col-lg-4 mb-3 mb-md-6">
           <div class="card hover-zoomImage h-100 overflow-hidden">
             <div class="overflow-hidden">
               <img src="image/tool4.png" alt="Sentiment Analysis API" class="card-img-top">
@@ -339,7 +339,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mb-3 mb-md-0 mb-lg-0">
+        <div class="col-md-6 col-lg-4 mb-3 mb-md-6">
           <div class="card hover-zoomImage h-100 overflow-hidden">
             <div class="overflow-hidden">
               <img src="image/tool5.png" alt="Fraud Detection Platform" class="card-img-top">
@@ -362,7 +362,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-6 col-lg-4 mb-3 mb-md-6">
           <div class="card hover-zoomImage h-100 overflow-hidden">
             <div class="overflow-hidden">
               <img src="image/tool6.png" alt="Voice Assistant SDK" class="card-img-top">
@@ -384,7 +384,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <nav aria-label="Page navigation">
         <ul class="pagination justify-content-end">

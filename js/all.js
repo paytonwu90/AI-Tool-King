@@ -1,11 +1,6 @@
 window.addEventListener('DOMContentLoaded', addListeners);
-window.addEventListener('DOMContentLoaded', getWorks);
+window.addEventListener('DOMContentLoaded', getData);
 window.addEventListener('resize', renderFilterBtn);
-
-let filter = {
-  modal: '',
-  type: ''
-};
 
 function addListeners() {
   $('.goTop').on('click', goTop);
@@ -36,32 +31,71 @@ function addListeners() {
   $('#filterBtn, #sortBtn').on('click', function(e) {
     toggleMenu($(this));
   });
+  $('#filterBtn').on('click', function() {
+    const menuItems = $('.menu-item', '#filterMenu');
+    menuItems.each(function() {
+      const item = $(this);
+      if (item.data('filterType') === query.type) item.addClass('active');
+      else item.removeClass('active');
+    });
+  });
   $('#sortMenu').on('click', '.menu-item', function(e) {
     const target = e.target;
     $('#sortBtn-text').text(target.textContent);
-    toggleMenu($('#sortBtn'));
+    query.sort = Number(target.dataset.sort);
+    closeMenu($('#sortBtn'));
+    getData();
   });
 
   $('#filterMenu').on('click', '.menu-item', function(e) {
     const target = $(e.target);
     if (target.hasClass('active')) {
       target.removeClass('active');
-      if (target.data('filterModal')) {
-        filter.modal = '';
-      } else if (target.data('filterType')) {
-        filter.type = '';
+      if (target.data('filterType')) {
+        query.type = '';
       }
     } else {
       target.closest('.menu-content').find('.menu-item').removeClass('active');
       target.addClass('active');
-      if (target.data('filterModal')) {
-        filter.modal = target.data('filterModal');
-      } else if (target.data('filterType')) {
-        filter.type = target.data('filterType');
+      if (target.data('filterType') || target.data('filterType')==='') {
+        query.type = target.data('filterType');
       }
     }
 
+    query.page = 1; //reset page
+
     renderFilterBtn();
+    renderTypeNav();
+    getData();
+  });
+
+  $('#work').on('click', '.work-type', function(e) {
+    query.type = $(e.target).data('filterType');
+    query.page = 1; //reset page
+    renderTypeNav();
+    renderFilterBtn();
+    getData();
+  });
+
+  $('#search').on('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    query.search = this.value;
+    getData();
+  });
+
+  $('#typeNav').on('click', '.nav-link', function(e) {
+    query.type = $(e.target).data('filterType');
+    query.page = 1; //reset page
+    renderTypeNav();
+    renderFilterBtn();
+    getData();
+  });
+
+  $('.pagination').on('click', '.page-link', function(e) {
+    const target = $(e.target);
+    if (e.target.tagName === 'SPAN') return;
+    query.page = Number(target.text());
+    getData();
   });
 }
 
@@ -128,12 +162,8 @@ function renderFilterBtn() {
   const button = $('#filterBtn');
   let text = '';
   let filterCount = 0;
-  if (filter.modal) {
-    text += filter.modal;
-    filterCount++;
-  }
-  if (filter.type) {
-    text += (text.length > 0 ? '、' : '') + filter.type;
+  if (query.type) {
+    text += query.type;
     filterCount++;
   }
   if (filterCount > 0) {
@@ -148,10 +178,104 @@ function renderFilterBtn() {
   }
 }
 
-function getWorks() {
-  /* axios.get('https://2023-engineer-camp.zeabur.app/api/v1/works?page=2&search=安安')
-    .then((response) => console.log(response.data['ai_works']))
-    .catch((error) => console.log(error)); */
+function renderTypeNav() {
+  const selectedType = query.type;
+  const links = $('.nav-link', '#typeNav');
+  links.each(function() {
+    let link = $(this);
+    if (link.data('filterType') !== selectedType) {
+      link.removeClass('active');
+    } else {
+      link.addClass('active');
+    }
+  });
+}
+
+function renderWorks() {
+  let content = '';
+
+  worksData.forEach(function(work) {
+    content += `<div class="col-md-6 col-lg-4 mb-3 mb-md-6">
+      <div class="card hover-zoomImage h-100 overflow-hidden">
+        <div class="overflow-hidden">
+          <img src="${work.imageUrl}" alt="${work.title}" class="card-img-top">
+        </div>
+        <div class="card-body d-flex flex-column p-0">
+          <div class="flex-grow-1 py-4 px-8 border-bottom">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="fs-6 mb-0 me-3">${work.title}</h4>
+              <a href="${work.link}" target="_blank" class="link-black"><span class="material-icons d-block">open_in_new</span></a>
+            </div>
+            
+            <p class="fs-8 text-dark">${work.description}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center py-4 px-8">
+              <span class="fw-bold">AI 模型</span>
+              <span>${work.model}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center py-4 px-8">
+              <a href="javascript:;" class="work-type link-black" data-filter-type="${work.type}">#${work.type}</a>
+              <a href="javascript:;" class="link-black"><span class="material-icons d-block">share</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  $('#work').html(content);
+}
+
+function renderPages() {
+  const pagination = $('.pagination');
+  const totalPages = pagesData.total_pages;
+  const currentPage = pagesData.current_page;
+
+  let content = '';
+  for (let i = 1; i <= totalPages; i++) {
+    if (i > 5) {
+      content += `<li class="page-item">
+        <a class="page-link" href="javascript:;" aria-label="Next">
+          <span class="material-icons" aria-hidden="true">keyboard_arrow_right</span>
+        </a>
+      </li>`;
+      break;
+    }
+    content += i==currentPage ? `<li class="page-item active" aria-current="page"><span class="page-link">${i}</span></li>`
+               : `<li class="page-item"><a class="page-link" href="javascript:;">${i}</a></li>`;
+  }
+
+  pagination.html(content);
+}
+
+let query = {
+  type: '',
+  sort: 0,
+  page: 1,
+  search: ''
+};
+
+let worksData = []
+let pagesData = {}
+
+function getData() {
+  const apiUrl = `https://2023-engineer-camp.zeabur.app/api/v1/works?sort=${query.sort}&page=${query.page}` +
+                  `${query.type ? `&type=${query.type}` : ''}` +
+                  `${query.search ? `&search=${query.search}` : ''}`;
+  //console.log('apiUrl:', apiUrl);
+  axios.get(apiUrl)
+    .then((response) => {
+      //console.log('作品資料:', response.data.ai_works.data);
+      //console.log('頁數資料:', response.data.ai_works.page);
+
+      worksData = response.data.ai_works.data;
+      pagesData = response.data.ai_works.page;
+
+      renderWorks();
+      renderPages();
+    })
+    .catch((error) => console.log(error));
 }
 
 function goTop() {
