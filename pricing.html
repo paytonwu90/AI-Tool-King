@@ -12,8 +12,8 @@
   <title>定價 - AI 工具王</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg py-7 py-md-5 border-bottom border-white">
-    <div class="container">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg py-7 py-md-5 border-bottom border-white">
       <h1 class="m-0">
         <a class="navbar-brand d-block" href="./">
           <img src="image/logo.png" alt="logo" class="logo"><span class="d-none">AI 工具王</span>
@@ -32,8 +32,8 @@
           </li>
         </ul>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 
   <!-- 用多少，付多少 -->
   <div class="container pt-10 pb-16 pb-lg-17">
@@ -192,7 +192,7 @@
     <div class="product container py-14 py-lg-17">
       <h2 class="fs-3 display-lg-3 text-center mb-8 mb-lg-14">這些超酷的應用，都來自 AI工具王</h2>
       <div class="position-relative mb-4 mb-lg-6">
-        <input type="text" class="form-control lh-1 ps-14" placeholder="輸入關鍵字搜尋">
+        <input id="search" type="search" class="form-control lh-1 ps-14" placeholder="輸入關鍵字搜尋">
         <span class="material-icons position-absolute top-50 left-40px translate-middle-y text-secondary">search</span>
       </div>
       <div class="position-relative mb-11 mb-lg-10">
@@ -374,7 +374,7 @@
       </div>
       <nav aria-label="Page navigation">
         <ul class="pagination justify-content-end">
-          <li class="page-item"><a class="page-link active" href="javascript:;">1</a></li>
+          <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
           <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
           <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
           <li class="page-item"><a class="page-link" href="javascript:;">4</a></li>

@@ -14828,16 +14828,8 @@ sub {
   font-weight: 900 !important;
 }
 
-.h-0 {
-  height: 0 !important;
-}
-
 .h-40px {
   height: 40px;
-}
-
-.w-0 {
-  width: 0 !important;
 }
 
 .left-40px {
@@ -14951,6 +14943,9 @@ sub {
 }
 .accordion-item:not(:first-of-type) {
   border-top: 1px solid #525252;
+}
+.accordion-item:not(:first-of-type):hover {
+  border-color: #fff;
 }
 
 .accordion-body {
@@ -15110,6 +15105,11 @@ sub {
   background-color: #f2f2f2;
 }
 
+.page-item.active .page-link {
+  color: #fff;
+  background-color: #020202;
+}
+
 .page-link {
   display: flex;
   justify-content: center;
@@ -15123,10 +15123,6 @@ sub {
 }
 .page-link:hover, .page-link:focus {
   color: #020202;
-}
-.page-link.active {
-  color: #fff;
-  background-color: #020202;
 }
 
 .swiper-slide {

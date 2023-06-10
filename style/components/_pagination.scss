@@ -1,3 +1,10 @@
+.page-item {
+  &.active .page-link {
+    color: $white;
+    background-color: $black;
+  }
+}
+
 .page-link {
   display: flex;
   justify-content: center;
@@ -10,9 +17,5 @@
   padding: 0;
   &:hover, &:focus {
     color: $black;
-  }
-  &.active {
-    color: $white;
-    background-color: $black;
   }
 }

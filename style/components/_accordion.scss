@@ -47,6 +47,9 @@
 
   &:not(:first-of-type) {
     border-top: $accordion-border-width solid $accordion-border-color;
+    &:hover {
+      border-color: $white;
+    }
   }
 }
 
