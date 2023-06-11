@@ -1,0 +1,13 @@
+.placeholder-image {
+  background-color: #ccc;
+  &::after {
+    font-family: 'Material Icons';
+    content: 'image';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 60px;
+    color: $gray-800;
+    transform: translate(-50%, -50%);
+  }
+}

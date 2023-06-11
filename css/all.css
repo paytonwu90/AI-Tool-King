@@ -15125,6 +15125,20 @@ sub {
   color: #020202;
 }
 
+.placeholder-image {
+  background-color: #ccc;
+}
+.placeholder-image::after {
+  font-family: "Material Icons";
+  content: "image";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 60px;
+  color: #525252;
+  transform: translate(-50%, -50%);
+}
+
 .swiper-slide {
   height: auto;
 }
