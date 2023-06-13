@@ -1,0 +1,42 @@
+//拿掉 chrome, edge 預設的 x icon
+input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.search-icon,
+.search-loading-icon,
+.search-clear-button {
+  position: absolute;
+  display: inline-block;
+  color: $gray-600;
+  transform: translateY(-50%);
+  transition: top .1s ease;
+}
+.search-icon {
+  top: 50%;
+  left: 40px;
+}
+.search-loading-icon {
+  top: 150%;
+  left: 40px;
+  &.spinner {
+    animation: loading 1.4s linear infinite;
+  }
+}
+.search-clear-button {
+  top: 150%;
+  right: 40px;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color .15s ease;
+  &:hover {
+    background-color: $gray-400;
+  }
+}
+
+@keyframes loading {
+  //search-loading-icon 本身就帶有 transform: translateY(-50%); 所以這邊也要加上
+  0% { transform: translateY(-50%) rotate(0deg); }
+  100% { transform: translateY(-50%) rotate(360deg); }
+}

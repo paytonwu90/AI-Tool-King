@@ -80,7 +80,13 @@ function addListeners() {
   $('#search').on('keydown', function(e) {
     if (e.key !== 'Enter') return;
     query.search = this.value;
-    getData();
+    //getData();
+    search();
+  });
+  $('#search').on('input focus', function() {
+    //不能把 this.value 有沒有值的判斷寫在 keydown event，因為 keydown event 抓到的會是還沒改變前的值
+    if (this.value !== '') show($('.search-clear-button'));
+    else hide($('.search-clear-button'));
   });
 
   $('#typeNav').on('click', '.nav-link', function(e) {
@@ -97,6 +103,50 @@ function addListeners() {
     query.page = Number(target.text());
     getData();
   });
+
+  $('.search-clear-button').on('click', function() {
+    $('#search').val('');
+    hide($(this));
+    query.search = '';
+    //getData();
+    search();
+  });
+}
+
+/**
+ * 把 search element 的 show 跟 hide 統一管理，不然分散寫好像有點亂
+ * @param {jQuery} obj 
+ */
+function show(obj) {
+  if (obj.hasClass('search-clear-button')) {
+    obj.css({top: '50%'});
+  }
+  if (obj.hasClass('search-icon')) {
+    obj.css({top: ''});
+  }
+  if (obj.hasClass('search-loading-icon')) {
+    obj.addClass('spinner').css({top: '50%'});
+  }
+}
+function hide(obj) {
+  if (obj.hasClass('search-clear-button')) {
+    obj.css({top: ''});
+  }
+  if (obj.hasClass('search-icon')) {
+    obj.css({top: '150%'});
+  }
+  if (obj.hasClass('search-loading-icon')) {
+    obj.removeClass('spinner').css({top: ''});
+  }
+}
+
+//主要是想要做 icon 的變化
+async function search() {
+  hide($('.search-icon'));
+  show($('.search-loading-icon'));
+  await getData();
+  hide($('.search-loading-icon'));
+  show($('.search-icon'));
 }
 
 /**
@@ -224,6 +274,10 @@ function renderWorks() {
     </div>`;
   });
 
+  if (worksData.length === 0) {
+    content = '<p class="text-center">找不到資料捏 _(:3 」∠ )_</p>';
+  }
+
   $('#work').html(content);
 }
 
@@ -259,12 +313,12 @@ let query = {
 let worksData = []
 let pagesData = {}
 
-function getData() {
+async function getData() {
   const apiUrl = `https://2023-engineer-camp.zeabur.app/api/v1/works?sort=${query.sort}&page=${query.page}` +
                   `${query.type ? `&type=${query.type}` : ''}` +
                   `${query.search ? `&search=${query.search}` : ''}`;
   //console.log('apiUrl:', apiUrl);
-  axios.get(apiUrl)
+  await axios.get(apiUrl)
     .then((response) => {
       //console.log('作品資料:', response.data.ai_works.data);
       //console.log('頁數資料:', response.data.ai_works.page);
