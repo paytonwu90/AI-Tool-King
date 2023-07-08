@@ -15318,21 +15318,21 @@ input[type=search]::-webkit-search-cancel-button {
   }
 }
 
-.partnerLogo {
+.partner-logo {
   position: relative;
 }
-.partnerLogo::before, .partnerLogo::after {
+.partner-logo::before, .partner-logo::after {
   content: "";
   position: absolute;
   width: 100px;
   height: 100%;
 }
-.partnerLogo::before {
+.partner-logo::before {
   top: 0;
   left: 0;
   background: linear-gradient(270deg, rgba(2, 2, 2, 0) 0%, rgb(2, 2, 2) 100%);
 }
-.partnerLogo::after {
+.partner-logo::after {
   top: 0;
   right: 0;
   background: linear-gradient(90deg, rgba(2, 2, 2, 0) 0%, rgb(2, 2, 2) 100%);
