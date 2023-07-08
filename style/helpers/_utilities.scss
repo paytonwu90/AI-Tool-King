@@ -1,6 +1,6 @@
-.fw-black {
+/* .fw-black {
   font-weight: 900 !important;
-}
+} */
 
 .h-40px {
   height: 40px;
@@ -31,7 +31,7 @@
   }
 }
 
-.position-md-absolute {
+/* .position-md-absolute {
   @include media-breakpoint-up(md) {
     position: absolute !important;
   }
@@ -40,7 +40,7 @@
   @include media-breakpoint-up(lg) {
     position: absolute !important;
   }
-}
+} */
 
 .translate-md-middle-y {
   @include media-breakpoint-up(md) {

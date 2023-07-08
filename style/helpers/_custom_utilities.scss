@@ -1,0 +1,20 @@
+$utilities: (
+  "font-weight": (
+    property: font-weight,
+    class: fw,
+    values: (
+      //覆蓋 utilities 的時候，重複的 values 也要寫
+      light: $font-weight-light,
+      lighter: $font-weight-lighter,
+      normal: $font-weight-normal,
+      bold: $font-weight-bold,
+      bolder: $font-weight-bolder,
+      black: $font-weight-black
+    )
+  ),
+  "position": (
+    property: position,
+    responsive: true,
+    values: static relative absolute fixed sticky
+  ),
+);
